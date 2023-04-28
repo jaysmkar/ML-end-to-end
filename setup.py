@@ -8,7 +8,8 @@ def get_requirements(file_path:str) -> List[str]:
     """
     Returns: List of requirements to install 
     Input: file_name/path 
-    Description: Takes the requirements.txt file as an input and returns the list of requirements to be installed.
+    Description: Takes the requirements.txt file as an input and returns the list of requirements to be 
+    installed and then send it to the install_requires variable.
     """
     requirements = []
     with open(file_path) as file_obj:
