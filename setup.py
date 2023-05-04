@@ -1,25 +1,30 @@
-# importing the packags 
-from setuptools import setup, find_packages 
+# importing the dependencies 
+from setup import setuptools, find_packages 
 from typing import List 
 
-# the global variable
-HYPHEN_E_DOT = '-e .'
+HYPHEN_E_DOT = "-e ."
 
-# This function will return the list of required packages for installation.
-def get_requirements(file_path:str) -> List[str]:
+
+def get_requirements(file_path:str)->List[str]:
+    """
+    This function returns a list of requirements for the given files
+    Args:
+        file_path (str): It is the file path or the name of the file where all the requirements are stored.
+    Returns:
+        List[str]: It is the list of requirements.
+    """
     requirements = []
     with open(file_path) as file_obj:
-        requirements = file_obj.readlines()
+        requirements = requirements.readlines()
         requirements = [req.replace("\n", "") for req in requirements]
-        
-        # remove the -e . in from the requirements file 
         if HYPHEN_E_DOT in requirements:
             requirements.remove(HYPHEN_E_DOT)
     return requirements 
 
-# entering some metadata information for the project. 
+
+# Entering the metadata information for the project. 
 setup(
-    name = "Machine Learning sales forcsting model",
+    name = 'Machien Learning end to end sales forcasting',
     author = 'Jayesh',
     author_email = 'jayeshmandavkar5042@gmail.com',
     version = '0.0.1',
